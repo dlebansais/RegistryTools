@@ -3,12 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistryTools", "RegistryTools\RegistryTools.csproj", "{66D629A5-FC39-4D32-8D2A-EC98BDC8C41A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistryTools", "RegistryTools\RegistryTools.csproj", "{66D629A5-FC39-4D32-8D2A-EC98BDC8C41A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6E4D8866-8B19-4977-A1EF-243C6F3B69E9} = {6E4D8866-8B19-4977-A1EF-243C6F3B69E9}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{55E8AAB7-4A25-4745-AA0E-6A8AB3ACF0F7}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PreBuild", "PreBuild\PreBuild.csproj", "{6E4D8866-8B19-4977-A1EF-243C6F3B69E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +25,10 @@ Global
 		{66D629A5-FC39-4D32-8D2A-EC98BDC8C41A}.Debug|x64.Build.0 = Debug|x64
 		{66D629A5-FC39-4D32-8D2A-EC98BDC8C41A}.Release|x64.ActiveCfg = Release|x64
 		{66D629A5-FC39-4D32-8D2A-EC98BDC8C41A}.Release|x64.Build.0 = Release|x64
+		{6E4D8866-8B19-4977-A1EF-243C6F3B69E9}.Debug|x64.ActiveCfg = Debug|x64
+		{6E4D8866-8B19-4977-A1EF-243C6F3B69E9}.Debug|x64.Build.0 = Debug|x64
+		{6E4D8866-8B19-4977-A1EF-243C6F3B69E9}.Release|x64.ActiveCfg = Release|x64
+		{6E4D8866-8B19-4977-A1EF-243C6F3B69E9}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
