@@ -5,4 +5,5 @@ Provide quick access to settings stored in the registry with basic types.
 
 ## Requirements
 
-This assembly requires .NET Framework 4.8. 
+This assembly requires .NET Framework 4.8 or .NET Core 3.1.
+ 
