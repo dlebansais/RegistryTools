@@ -102,6 +102,29 @@
         /// </summary>
         /// <param name="valueName">The value name.</param>
         /// <param name="defaultValue">The default to use if not found in the registry.</param>
+        /// <returns>The value read if found in the registry; otherwise, the default value in <paramref name="defaultValue"/>.</returns>
+        public bool GetBool(string valueName, bool defaultValue)
+        {
+            TraceStart();
+
+            bool Result;
+            int? KeyValue = GetSettingKey(valueName) as int?;
+
+            if (KeyValue.HasValue)
+                Result = KeyValue.Value != 0;
+            else
+                Result = defaultValue;
+
+            TraceEnd();
+
+            return Result;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="bool"/> value, using a default value if not found in the registry settings.
+        /// </summary>
+        /// <param name="valueName">The value name.</param>
+        /// <param name="defaultValue">The default to use if not found in the registry.</param>
         /// <param name="value">The value upon return. It will be <paramref name="defaultValue"/> if the method returns false.</param>
         /// <returns>True if found in the registry; otherwise, false.</returns>
         public bool GetBool(string valueName, bool defaultValue, out bool value)
@@ -147,6 +170,29 @@
         /// </summary>
         /// <param name="valueName">The value name.</param>
         /// <param name="defaultValue">The default to use if not found in the registry.</param>
+        /// <returns>The value read if found in the registry; otherwise, the default value in <paramref name="defaultValue"/>.</returns>
+        public int GetInt(string valueName, int defaultValue)
+        {
+            TraceStart();
+
+            int Result;
+            int? KeyValue = GetSettingKey(valueName) as int?;
+
+            if (KeyValue.HasValue)
+                Result = KeyValue.Value;
+            else
+                Result = defaultValue;
+
+            TraceEnd();
+
+            return Result;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="int"/> value, using a default value if not found in the registry settings.
+        /// </summary>
+        /// <param name="valueName">The value name.</param>
+        /// <param name="defaultValue">The default to use if not found in the registry.</param>
         /// <param name="value">The value upon return. It will be <paramref name="defaultValue"/> if the method returns false.</param>
         /// <returns>True if found in the registry; otherwise, false.</returns>
         public bool GetInt(string valueName, int defaultValue, out int value)
@@ -185,6 +231,29 @@
             SetSettingKey(valueName, value, RegistryValueKind.DWord);
 
             TraceEnd();
+        }
+
+        /// <summary>
+        /// Gets a <see cref="string"/> value, using a default value if not found in the registry settings.
+        /// </summary>
+        /// <param name="valueName">The value name.</param>
+        /// <param name="defaultValue">The default to use if not found in the registry.</param>
+        /// <returns>The value read if found in the registry; otherwise, the default value in <paramref name="defaultValue"/>.</returns>
+        public string GetString(string valueName, string defaultValue)
+        {
+            TraceStart();
+
+            string Result;
+            string? KeyValue = GetSettingKey(valueName) as string;
+
+            if (KeyValue != null)
+                Result = KeyValue;
+            else
+                Result = defaultValue;
+
+            TraceEnd();
+
+            return Result;
         }
 
         /// <summary>
@@ -240,6 +309,27 @@
         /// </summary>
         /// <param name="valueName">The value name.</param>
         /// <param name="defaultValue">The default to use if not found in the registry.</param>
+        /// <returns>The value read if found in the registry; otherwise, the default value in <paramref name="defaultValue"/>.</returns>
+        public float GetFloat(string valueName, float defaultValue)
+        {
+            TraceStart();
+
+            float Result;
+            string? KeyValue = GetSettingKey(valueName) as string;
+
+            if (KeyValue == null || !float.TryParse(KeyValue, NumberStyles.Float, CultureInfo.InvariantCulture, out Result))
+                Result = defaultValue;
+
+            TraceEnd();
+
+            return Result;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="float"/> value, using a default value if not found in the registry settings.
+        /// </summary>
+        /// <param name="valueName">The value name.</param>
+        /// <param name="defaultValue">The default to use if not found in the registry.</param>
         /// <param name="value">The value upon return. It will be <paramref name="defaultValue"/> if the method returns false.</param>
         /// <returns>True if found in the registry; otherwise, false.</returns>
         public bool GetFloat(string valueName, float defaultValue, out float value)
@@ -283,6 +373,27 @@
         /// </summary>
         /// <param name="valueName">The value name.</param>
         /// <param name="defaultValue">The default to use if not found in the registry.</param>
+        /// <returns>The value read if found in the registry; otherwise, the default value in <paramref name="defaultValue"/>.</returns>
+        public double GetDouble(string valueName, double defaultValue)
+        {
+            TraceStart();
+
+            double Result;
+            string? KeyValue = GetSettingKey(valueName) as string;
+
+            if (KeyValue == null || !double.TryParse(KeyValue, NumberStyles.Float, CultureInfo.InvariantCulture, out Result))
+                Result = defaultValue;
+
+            TraceEnd();
+
+            return Result;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="double"/> value, using a default value if not found in the registry settings.
+        /// </summary>
+        /// <param name="valueName">The value name.</param>
+        /// <param name="defaultValue">The default to use if not found in the registry.</param>
         /// <param name="value">The value upon return. It will be <paramref name="defaultValue"/> if the method returns false.</param>
         /// <returns>True if found in the registry; otherwise, false.</returns>
         public bool GetDouble(string valueName, double defaultValue, out double value)
@@ -319,6 +430,27 @@
             SetSettingKey(valueName, StringValue, RegistryValueKind.String);
 
             TraceEnd();
+        }
+
+        /// <summary>
+        /// Gets a <see cref="Guid"/> value, using a default value if not found in the registry settings.
+        /// </summary>
+        /// <param name="valueName">The value name.</param>
+        /// <param name="defaultValue">The default to use if not found in the registry.</param>
+        /// <returns>The value read if found in the registry; otherwise, the default value in <paramref name="defaultValue"/>.</returns>
+        public Guid GetGuid(string valueName, Guid defaultValue)
+        {
+            TraceStart();
+
+            Guid Result;
+            string? KeyValue = GetSettingKey(valueName) as string;
+
+            if (KeyValue == null || !Guid.TryParse(KeyValue, out Result))
+                Result = defaultValue;
+
+            TraceEnd();
+
+            return Result;
         }
 
         /// <summary>
