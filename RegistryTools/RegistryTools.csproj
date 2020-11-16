@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net48;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net48;net5.0</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <Platforms>x64</Platforms>
@@ -14,7 +14,6 @@
     <Copyright></Copyright>
     <AssemblyVersion>1.1.0.3</AssemblyVersion>
     <FileVersion>1.1.0.3</FileVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/dlebansais/RegistryTools</RepositoryUrl>
   </PropertyGroup>
 
