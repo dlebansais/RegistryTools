@@ -53,17 +53,17 @@
         /// <summary>
         /// Gets the root name.
         /// </summary>
-        public string RootName { get; }
+        public string RootName { get; init; }
 
         /// <summary>
         /// Gets the product name.
         /// </summary>
-        public string ProductName { get; }
+        public string ProductName { get; init; }
 
         /// <summary>
         /// Gets the tracer.
         /// </summary>
-        public ITracer? Tracer { get; }
+        public ITracer? Tracer { get; init; }
         #endregion
 
         #region Client Interface
@@ -502,9 +502,9 @@
         {
             TraceStart();
 
-            RegistryKey Key = Registry.CurrentUser.OpenSubKey(@"Software", true);
-            Key = Key.CreateSubKey(RootName);
-            SettingKey = Key.CreateSubKey(ProductName);
+            RegistryKey? Key = Registry.CurrentUser.OpenSubKey(@"Software", true);
+            Key = Key?.CreateSubKey(RootName);
+            SettingKey = Key?.CreateSubKey(ProductName);
 
             TraceEnd();
         }
