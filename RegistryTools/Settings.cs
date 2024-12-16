@@ -642,9 +642,6 @@ public class Settings : IDisposable
     /// <summary>
     /// Disposes of every reference that must be cleaned up.
     /// </summary>
-    private void DisposeNow()
-    {
-        CloseKey();
-    }
+    private void DisposeNow() => CloseKey();
     #endregion
 }
